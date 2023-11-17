@@ -1,0 +1,90 @@
+/*star selctor selcts all tags*/
+/*take away default browser settings*/
+* { 
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*body properties will be inherited by the children of the body*/
+body {
+    background-color: #000;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+
+/*style the genral layout of the content in main*/
+main {
+    display: flex; /*turn the container of main into a flex container*/
+    justify-content: center; /*centre content in the top middle*/
+    flex-wrap: wrap;/*flex box defaults the elements to display in a row, flex warp allows the content to stack as the borwser window shrinks*/
+}
+
+/*the rule is saying to look in the header container for any h1 element to style. essentially: header h1 {}*/
+header > h1 {
+    text-align: center;
+    padding: 10px; /*TRBL=10px*/
+}
+
+/*styling will aplly to ALL article tags*/
+article {
+    width: 400px;
+    border: 4px solid #fff;
+    border-radius: 8px;
+    margin: 10px;
+    text-align: left;
+}
+
+article > h2 {
+    color: #ffa6bb;
+    padding: 4px 8px; /*TB=4px RL=8px*/
+}
+
+/*style only the first article. essentially: article :first-of-type = article #to-do (more specific) = #to-do (less specific)*/ 
+/*careful not to add a space between article and :*/
+article:first-of-type {
+    border: 4px solid #ffa6bb; /*only styles the border. NOT the text*/
+    border-radius: 8px;
+}
+
+/*since an id is more specific than and article selector, the id styling will ovveride it*/
+#in-progress {
+    border: 4px solid #aeffc5;
+}
+
+/*style ONLY the h2 tags inside the id of in-progress*/
+#in-progress h2 {
+    color: #aeffc5;
+}
+
+#done {
+    border: 4px solid #a6bfff;
+}
+
+#done h2{
+    color: #a6bfff;
+}
+
+/*remove list bulets*/
+ul {
+    list-style-type: none;
+}
+ /*add space inside list*/
+ul li {
+    padding: 6px 8px; /*TB RL*/
+    text-transform: uppercase;
+    border: none;
+}
+ /* for each li te nth-child selector will style every odd numbered list item*/
+.to-do li:nth-child(odd) {
+    background-color: rgba(255, 166, 187, .2);
+}
+
+.in-progress li:nth-child(odd) {
+    background-color: rgba(174, 255, 197, .2);
+}
+
+.done li:nth-child(odd) {
+    background-color: rgba(166, 191, 255, .2);
+}
